@@ -1,0 +1,47 @@
+appId: com.restaurantpos.app
+productName: Restaurant POS
+copyright: Copyright © 2024 Restaurant POS
+
+directories:
+  buildResources: build
+  output: dist-installer
+
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!electron.vite.config.*'
+  - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+
+asarUnpack:
+  - '**/*.node'
+  - '**/*.wasm'
+
+win:
+  executableName: RestaurantPOS
+  signAndEditExecutable: false
+  forceCodeSigning: false
+  target:
+    - target: dir
+      arch:
+        - x64
+    - target: nsis
+      arch:
+        - x64
+
+nsis:
+  artifactName: RestaurantPOS-Setup-${version}.exe
+  shortcutName: Restaurant POS
+  uninstallDisplayName: Restaurant POS
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: false
+
+extraResources:
+  - from: resources
+    to: resources
+    filter:
+      - '**/*'

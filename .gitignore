@@ -1,0 +1,16 @@
+node_modules/
+out/
+dist/
+dist-installer/
+installer/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+data/
+backups/
+logs/
+.env
+*.log
+.DS_Store
+Thumbs.db
